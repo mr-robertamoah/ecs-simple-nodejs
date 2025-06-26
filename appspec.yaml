@@ -3,7 +3,19 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "<TASK_DEFINITION>"
+        TaskDefinition: "arn:aws:ecs:eu-north-1:137068240060:task-definition/ecs-simple-node:2"
         LoadBalancerInfo:
           ContainerName: "ecs-simple-node"
           ContainerPort: 3000
+        PlatformVersion: "LATEST"
+        NetworkConfiguration:
+          AwsvpcConfiguration:
+            AssignPublicIp: "ENABLED"
+            Subnets: ["subnet-12345678", "subnet-87654321"]
+            SecurityGroups: ["sg-12345678"]
+Hooks:
+  - BeforeInstall: "LambdaFunctionToValidateBeforeInstall"
+  - AfterInstall: "LambdaFunctionToValidateAfterInstall"
+  - AfterAllowTestTraffic: "LambdaFunctionToValidateAfterTestTraffic"
+  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTraffic"
+  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTraffic"

@@ -1,11 +1,12 @@
 {
   "family": "ecs-simple-node",
   "networkMode": "awsvpc",
-  "executionRoleArn": "ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::137068240060:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::137068240060:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "name": "ecs-simple-node",
-      "image": "mrrobertamoah/ecs-simple-node:latest",
+      "image": "137068240060.dkr.ecr.eu-north-1.amazonaws.com/mrrobertamoah/ecs-simple-node:latest",
       "portMappings": [
         {
           "containerPort": 3000,
@@ -14,6 +15,14 @@
         }
       ],
       "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/ecs-simple-node",
+          "awslogs-region": "eu-north-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
       "environment": [
         {
           "name": "ENVIRONMENT",
@@ -36,5 +45,8 @@
   ],
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "256",
-  "memory": "512"
+  "memory": "512",
+  "runtimePlatform": {
+    "operatingSystemFamily": "LINUX"
+  }
 }
