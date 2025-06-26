@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
   res.send(`
     <html>
       <body style="background-color: ${process.env.COLOR || '#ffffff'};">
-        <h1>Welcome to ${process.env.APP_NAME || 'My App'}</h1>
+        <h1>Welcome to ${process.env.APP_NAME || 'My DevOps Team'}</h1>
         <p>Version: ${process.env.APP_VERSION || '1.0.0'}</p>
         <p>Environment: ${process.env.ENVIRONMENT || 'development'}</p>
       </body>
