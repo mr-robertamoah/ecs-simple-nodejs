@@ -2,7 +2,6 @@
   "family": "ecs-simple-node",
   "networkMode": "awsvpc",
   "executionRoleArn": "arn:aws:iam::137068240060:role/ecsTaskExecutionRole",
-  "taskRoleArn": "arn:aws:iam::137068240060:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
       "name": "ecs-simple-node",
