@@ -11,11 +11,5 @@ Resources:
         NetworkConfiguration:
           AwsvpcConfiguration:
             AssignPublicIp: "ENABLED"
-            Subnets: ["subnet-12345678", "subnet-87654321"]
-            SecurityGroups: ["sg-12345678"]
-Hooks:
-  - BeforeInstall: "LambdaFunctionToValidateBeforeInstall"
-  - AfterInstall: "LambdaFunctionToValidateAfterInstall"
-  - AfterAllowTestTraffic: "LambdaFunctionToValidateAfterTestTraffic"
-  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTraffic"
-  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTraffic"
+            Subnets: ["subnet-0e69fa76f9cce7dd4", "subnet-058b45e935317ab4b"]
+            SecurityGroups: ["sg-08377b1cc49704a4a"]
